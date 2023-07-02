@@ -1,0 +1,18 @@
+# give u action a name by adding name key
+name: First Worklow
+# define when this worklow should be executed, its by defining on key. inside on we define event/s that should trigger this workflow to run.
+#workflow_dispatch is a event that waits for user to manually trigger this worklow.
+on: [workflow_dispatch]
+#work to be done , we define that inside jobs
+#inside jobs, we define multiple jobs where we can give our own job names. in our case first-job
+#inside first job we have to runner on which the first-job will execute for different steps.i.e the environemnt in which different steps should be executed.
+#this is define by adding runs-on key
+#when defining steps, we can execute either a shell script (by using run key) or use predefined action
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print greeting  # meaninfgull name of step
+        run: echo "hello world" #command to be executed in the command line.
+      - name: Print goodbye
+        run: echo "Done - bye"
